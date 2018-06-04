@@ -1,0 +1,29 @@
+-   Phase de recherche
+ -   réflexion sur la l’environnement et la version de zabbix à deployer 
+ -   Réalisation de deux lamp test sous VB:
+	     Le server : 
+	          install/config d’un serveur web
+		-phase de test 
+		-changer de time zone
+	          install/config d’une base de données MySQL
+		-  ajout d’un user zabbix reliant le serveur zabbix à MySQL
+		-  attribution de privilèges 
+		-  création d’une database pour zabbix-server
+		-  import des scripts sql nécessaire à la base
+	          install/config d’un frontend PHP
+	          monitorer le serveur
+                install/config d’agent zabbix                
+	    Le client :      
+	          monitorer un second client
+		-  approche semblable que le serveur (apache, MySQL, PHP afin de réaliser un phpmyadmin)
+                 install/config d’agent d’agent zabbix
+		-  redirection des informations vers le serveur
+ -  Decouverte de l’interface zabbix
+	     Ajout d’utilisateur depuis l’interface à la base de données MySQL (modifications, attribution de privilèges)
+	     Création des hosts qui accueilleront les informations des clients
+            Ajout de template
+	     Création de template perso
+	     Création de web monitoring (pour le phpmyadmin afin d’avoir un retour de son état, temps d’échange de paquet)
+	     Ajout de graph
+ -   Déploiement sur serveur
+ -   automatisation du déploiement 
