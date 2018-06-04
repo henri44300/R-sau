@@ -1,0 +1,198 @@
+
+Current configuration : 3592 bytes
+!
+! Last configuration change at 16:53:42 UTC Thu May 31 2018
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password Epsi2018!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+multilink bundle-name authenticated
+!
+cts logging verbose
+!
+!
+license udi pid CISCO1921/K9 sn FCZ1925C3D0
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address 172.18.0.253 255.255.0.0
+ standby 100 ip 172.18.0.251
+ standby 100 priority 145
+ standby 100 preempt
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.2 255.255.255.0
+ standby 100 ip 192.168.10.3
+ standby 100 priority 145
+ standby 100 preempt
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.2 255.255.255.0
+ standby 100 ip 192.168.20.3
+ standby 100 priority 145
+ standby 100 preempt
+!
+interface GigabitEthernet0/1
+ ip address 192.168.1.254 255.255.255.0
+ standby 10 ip 192.168.1.252
+ standby 10 priority 145
+ standby 10 preempt
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.100
+ encapsulation dot1Q 100
+ ip address 192.168.100.2 255.255.255.0
+ standby 10 ip 192.168.100.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.110
+ encapsulation dot1Q 110
+ ip address 192.168.110.2 255.255.255.0
+ standby 10 ip 192.168.110.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.120
+ encapsulation dot1Q 120
+ ip address 192.168.120.2 255.255.255.0
+ standby 10 ip 192.168.120.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.130
+ encapsulation dot1Q 130
+ ip address 192.168.130.2 255.255.255.0
+ standby 10 ip 192.168.130.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.140
+ encapsulation dot1Q 140
+ ip address 192.168.140.2 255.255.255.0
+ standby 10 ip 192.168.140.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.150
+ encapsulation dot1Q 150
+ ip address 192.168.150.2 255.255.255.0
+ standby 10 ip 192.168.150.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.160
+ encapsulation dot1Q 160
+ ip address 192.168.160.2 255.255.255.0
+ standby 10 ip 192.168.160.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.170
+ encapsulation dot1Q 170
+ ip address 192.168.170.2 255.255.255.0
+ standby 10 ip 192.168.170.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.180
+ encapsulation dot1Q 180
+ ip address 192.168.180.2 255.255.255.0
+ standby 10 ip 192.168.180.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.190
+ encapsulation dot1Q 190
+ ip address 192.168.190.2 255.255.255.0
+ standby 10 ip 192.168.190.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+interface GigabitEthernet0/1.200
+ encapsulation dot1Q 200
+ ip address 192.168.200.2 255.255.255.0
+ standby 10 ip 192.168.200.3
+ standby 10 priority 145
+ standby 10 preempt
+!
+router rip
+ version 2
+ network 172.18.0.0
+ network 192.168.1.0
+!
+ip default-gateway 172.18.0.254
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input none
+!
+scheduler allocate 20000 1000
+!
+end 
